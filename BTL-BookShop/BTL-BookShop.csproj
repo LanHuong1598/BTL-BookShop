@@ -298,6 +298,7 @@
     <Content Include="Content\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Content\js\waypoints.min.js" />
     <Content Include="Content\js\wow.min.js" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -349,6 +350,7 @@
     <Content Include="Views\Shared\_HeaderSticky.cshtml" />
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_HeaderMidArea.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
