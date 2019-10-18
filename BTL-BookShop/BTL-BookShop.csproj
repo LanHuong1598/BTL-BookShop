@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -313,8 +314,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -324,6 +323,10 @@
     <Content Include="Views\Shop\Product.cshtml" />
     <Content Include="Views\Shop\Search.cshtml" />
     <Content Include="Views\Shared\Home\_PartialViewForIndex.cshtml" />
+    <Content Include="Views\Shared\_HeaderTopArea.cshtml" />
+    <Content Include="Views\Shared\_HeaderSticky.cshtml" />
+    <Content Include="Views\Shared\_HeaderMobile.cshtml" />
+    <Content Include="Views\Shared\_HeaderMidArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

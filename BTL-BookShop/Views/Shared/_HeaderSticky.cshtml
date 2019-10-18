@@ -1,0 +1,64 @@
+﻿@using BanSach.Models.Entities
+@model List<Category>
+@{
+
+}
+
+<div class="main-menu-area hidden-sm hidden-xs sticky-header-1 text-center" id="header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="menu-area">
+                    <nav>
+                        <ul>
+                            <li><a href="home.html">Trang chủ</i></a></li>
+                            <li><a href="product-details.html">Sách mới </i></a></li>
+                            <li>
+                                <a href="product-details.html">Sách theo chủ đề<i class="fa fa-angle-down"></i></a>
+                                <div class="mega-menu mega-menu-2">
+                                    @foreach (var item in ViewBag.ListCategory)
+                                    {
+                                        <span>
+                                            <a href="shop.html">@item.Name</a>
+                                        </span>
+                                    }
+                                    @*<span>
+                                            <a href="#" class="title">Shirts</a>
+                                            <a href="shop.html">Tops & Tees</a>
+                                            <a href="shop.html">Sweaters </a>
+                                            <a href="shop.html">Hoodies</a>
+                                            <a href="shop.html">Jackets & Coats</a>
+                                        </span>
+                                        <span>
+                                            <a href="#" class="title">Tops & Tees</a>
+                                            <a href="shop.html">Long Sleeve </a>
+                                            <a href="shop.html">Short Sleeve</a>
+                                            <a href="shop.html">Polo Short Sleeve</a>
+                                            <a href="shop.html">Sleeveless</a>
+                                        </span>
+                                        <span>
+                                            <a href="#" class="title">Jackets</a>
+                                            <a href="shop.html">Sweaters</a>
+                                            <a href="shop.html">Hoodies</a>
+                                            <a href="shop.html">Wedges</a>
+                                            <a href="shop.html">Vests</a>
+                                        </span>
+                                        <span>
+                                            <a href="#" class="title">Jeans Pants</a>
+                                            <a href="shop.html">Polo Short Sleeve</a>
+                                            <a href="shop.html">Sleeveless</a>
+                                            <a href="shop.html">Graphic T-Shirts</a>
+                                            <a href="shop.html">Hoodies</a>
+                                        </span>*@
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="safe-area">
+                    <a href="product-details.html">Khuyến mãi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
