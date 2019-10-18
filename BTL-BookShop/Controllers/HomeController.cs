@@ -36,6 +36,11 @@ namespace BTL_BookShop.Controllers
             return PartialView(model);
         }
 
+        public PartialViewResult RenderModal_Item()
+        {
+            return PartialView();
+        }
+
         public ActionResult Login()
         {
             List<User> DS_User = new F_User().DS_User.ToList();
