@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTL-BookShop", "BTL-BookShop\BTL-BookShop.csproj", "{FB82AB05-131F-49E7-A526-7C62C0C4DF32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTL_BookShop", "BTL-BookShop\BTL_BookShop.csproj", "{FB82AB05-131F-49E7-A526-7C62C0C4DF32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D81A088-9D1E-42A3-912D-E4F2743BC36C}
 	EndGlobalSection
 EndGlobal

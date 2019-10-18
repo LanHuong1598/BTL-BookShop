@@ -178,7 +178,8 @@
     <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Entities\UserGroup.cs" />
-    <Compile Include="Models\Function\F_User.cs" />
+    <Compile Include="Models\Functions\F_Cart.cs" />
+    <Compile Include="Models\Functions\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +352,7 @@
     <Content Include="Views\Shared\_HeaderMobile.cshtml" />
     <Content Include="Views\Shared\_HeaderMidArea.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
