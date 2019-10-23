@@ -23,7 +23,7 @@ namespace BTL_BookShop.Controllers
         {
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
-            var model = new F_Book().getAll().Where(x => x.Name.Contains(txt)).ToList();
+            var model = new F_Book().getAll();
             ViewBag.Book = model;
             return View();
         }

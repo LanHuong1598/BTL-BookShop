@@ -43,10 +43,31 @@ namespace BTL_BookShop.Controllers
 
         public ActionResult Login()
         {
-            List<User> DS_User = new F_User().DS_User.ToList();
-            return View(DS_User);
-        }
+            var model = new User();
 
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Login(User model)
+        {
+            string TenDN = model.UserName;
+            string MK = model.Password;
+            
+            List<User> Ds_User = new F_User().DS_User.ToList();
+            
+                User user = new User();
+                user = new F_User().Login(TenDN, MK);
+                if(user.GroupID=="Admin")
+                {
+                return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+           
+            
+        }
         public ActionResult Register()
         {
             return View();

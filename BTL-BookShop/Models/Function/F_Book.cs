@@ -9,7 +9,7 @@ namespace BTL_BookShop.Models.Function
    
     public class F_Book
     {
-        MyDBContext context = null;
+        MyDBContext context;
         public F_Book()
         {
             context = new MyDBContext();

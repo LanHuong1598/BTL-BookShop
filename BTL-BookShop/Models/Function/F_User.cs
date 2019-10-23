@@ -12,6 +12,26 @@ namespace BTL_BookShop.Models.Function
         {
             context = new MyDBContext();
         }
+        public bool Login_Test(string user,string password)
+        {
+            var result = context.Users.Count(x => x.UserName == user && x.Password == password);
+            if (result > 0) return true;
+            else return false;
+        }
+        public User Login(string user_name,string password)
+        {
+            User user = new User();
+            if(Login_Test(user_name,password)==true)
+            {
+                var temp= new F_User().DS_User.ToList();
+                user = temp[0];
+            }
+            else
+            {
+                
+            }
+            return user;
+        }
         public IQueryable<User> DS_User
         {
             get { return context.Users; }
