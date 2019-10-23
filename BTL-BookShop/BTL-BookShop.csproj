@@ -181,6 +181,7 @@
     <Compile Include="Models\Entities\UserGroup.cs" />
     <Compile Include="Models\Function\F_Author.cs" />
     <Compile Include="Models\Function\F_Book.cs" />
+    <Compile Include="Models\Function\F_Cart.cs" />
     <Compile Include="Models\Function\F_Category.cs" />
     <Compile Include="Models\Function\F_Publisher.cs" />
     <Compile Include="Models\Function\F_User.cs" />
