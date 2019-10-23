@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using BTL_BookShop.Models.Entities;
 using BTL_BookShop.Models.Function;
+using BTL_BookShop.Models.Functions;
+
 namespace BTL_BookShop.Controllers
 {
     public class HomeController : Controller

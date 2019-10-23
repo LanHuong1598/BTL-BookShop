@@ -190,6 +190,7 @@
     <Compile Include="Models\Entities\UserGroup.cs" />
     <Compile Include="Models\Function\F_Author.cs" />
     <Compile Include="Models\Function\F_Book.cs" />
+    <Compile Include="Models\Function\F_Cart.cs" />
     <Compile Include="Models\Function\F_Category.cs" />
     <Compile Include="Models\Function\F_Publisher.cs" />
     <Compile Include="Models\Function\F_User.cs" />
@@ -5436,6 +5437,7 @@
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shared\Shop\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -5447,7 +5449,6 @@
     <Folder Include="Assets\Admin\js\plugins\ckfinder\plugins\watermark\bin\Debug\" />
     <Folder Include="Assets\Admin\js\plugins\ckfinder\plugins\watermark\bin\Release\" />
     <Folder Include="Content\css\github.com\necolas\" />
-    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

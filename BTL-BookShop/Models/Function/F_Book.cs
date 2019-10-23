@@ -4,32 +4,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BTL_BookShop.Models.Function
+namespace BTL_BookShop.Models.Functions
 {
-   
     public class F_Book
     {
-        MyDBContext context;
+        MyDBContext context = null;
         public F_Book()
         {
             context = new MyDBContext();
+        }
+        public IQueryable<Book> ListBooks
+        {
+            get { return context.Books; }
+        }
+        public Book FindBook(long ma)
+        {
+            Book temp = context.Books.Find(ma);
+            return temp;
+        }
+        public long? Insert(Book model)
+        {
+            Book temp = context.Books.Find(model.ID);
+            if (temp == null)
+            {
+                return null;
+            }
+            else
+            {
+                context.Books.Add(model);
+                context.SaveChanges();
+                return model.ID;
+            }
+        }
+
+        internal object FindEntity(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public long? Update(Book model)
+        {
+            Book temp = context.Books.Find(model.ID);
+            if (temp == null)
+            {
+                return null;
+            }
+            else
+            {
+                temp = model;
+                context.SaveChanges();
+                return model.ID;
+            }
+        }
+        public long? Delete(Book model)
+        {
+            Book temp = context.Books.Find(model.ID);
+            if (temp == null)
+            {
+                return null;
+            }
+            else
+            {
+                context.Books.Remove(model);
+                context.SaveChanges();
+                return model.ID;
+            }
         }
         public List<Book> getAll()
         {
             List<Book> ans = context.Books.ToList();
             return ans;
         }
-        public IQueryable<Book> DSSach
-        {
-            get { return context.Books; }
-        }
-       
-        public Book FindEntity(long ma)
-        {
-            Book dbE = context.Books.Find(ma);
-            return dbE;
-        }
-
 
     }
 }
