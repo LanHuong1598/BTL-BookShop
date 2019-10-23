@@ -17,6 +17,8 @@ namespace BTL_BookShop.Models.Entities
         public virtual DbSet<BookCategory> BookCategories { get; set; }
         public virtual DbSet<CartItem> CartItems { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<CategoryBook> CategoryBooks { get; set; }
+        public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<News> News { get; set; }
@@ -29,7 +31,6 @@ namespace BTL_BookShop.Models.Entities
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<ShippingType> ShippingTypes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserGroup> UserGroups { get; set; }
 
@@ -39,42 +40,21 @@ namespace BTL_BookShop.Models.Entities
                 .Property(e => e.Image)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Author>()
-                .HasMany(e => e.Books)
-                .WithOptional(e => e.Author1)
-                .HasForeignKey(e => e.Author);
-
             modelBuilder.Entity<Book>()
                 .Property(e => e.Code)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Book>()
                 .Property(e => e.Price)
-                .HasPrecision(18, 0);
+                .HasPrecision(20, 0);
 
             modelBuilder.Entity<Book>()
                 .Property(e => e.PromotionPrice)
-                .HasPrecision(18, 0);
+                .HasPrecision(20, 0);
 
             modelBuilder.Entity<Book>()
                 .Property(e => e.ModifiedBy)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Book>()
-                .HasMany(e => e.CartItems)
-                .WithRequired(e => e.Book)
-                .HasForeignKey(e => e.ItemID)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Book>()
-                .HasMany(e => e.Order_Detail)
-                .WithRequired(e => e.Book)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Book>()
-                .HasMany(e => e.PurchaseDetails)
-                .WithRequired(e => e.Book)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<BookCategory>()
                 .Property(e => e.MetaTitle)
@@ -112,10 +92,13 @@ namespace BTL_BookShop.Models.Entities
                 .Property(e => e.MetaDescription)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Category>()
-                .HasMany(e => e.BookCategories)
-                .WithOptional(e => e.Category)
-                .HasForeignKey(e => e.ParentID);
+            modelBuilder.Entity<Credential>()
+                .Property(e => e.UserGroupID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Credential>()
+                .Property(e => e.RoleID)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Image>()
                 .Property(e => e.Link)
@@ -129,11 +112,6 @@ namespace BTL_BookShop.Models.Entities
                 .Property(e => e.Order)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<NewsType>()
-                .HasMany(e => e.News)
-                .WithOptional(e => e.NewsType)
-                .HasForeignKey(e => e.TypeID);
-
             modelBuilder.Entity<Order>()
                 .Property(e => e.ShipMobile)
                 .IsUnicode(false);
@@ -145,11 +123,6 @@ namespace BTL_BookShop.Models.Entities
             modelBuilder.Entity<Order>()
                 .Property(e => e.TotalPrice)
                 .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.Order_Detail)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Order_Detail>()
                 .Property(e => e.Price)
@@ -175,21 +148,6 @@ namespace BTL_BookShop.Models.Entities
                 .Property(e => e.MetaDescription)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Publisher>()
-                .HasMany(e => e.Books)
-                .WithOptional(e => e.Publisher1)
-                .HasForeignKey(e => e.Publisher);
-
-            modelBuilder.Entity<Publisher>()
-                .HasMany(e => e.Books1)
-                .WithOptional(e => e.Publisher2)
-                .HasForeignKey(e => e.Released);
-
-            modelBuilder.Entity<Purchase>()
-                .HasMany(e => e.PurchaseDetails)
-                .WithRequired(e => e.Purchase)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<PurchaseDetail>()
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);
@@ -198,19 +156,9 @@ namespace BTL_BookShop.Models.Entities
                 .Property(e => e.ID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Role>()
-                .HasMany(e => e.UserGroups)
-                .WithMany(e => e.Roles)
-                .Map(m => m.ToTable("Credential").MapLeftKey("RoleID").MapRightKey("UserGroupID"));
-
             modelBuilder.Entity<ShippingType>()
                 .Property(e => e.Cost)
                 .HasPrecision(18, 0);
-
-            modelBuilder.Entity<ShippingType>()
-                .HasMany(e => e.Orders)
-                .WithOptional(e => e.ShippingType)
-                .HasForeignKey(e => e.ShipTypeID);
 
             modelBuilder.Entity<Slide>()
                 .Property(e => e.Where)
@@ -251,12 +199,6 @@ namespace BTL_BookShop.Models.Entities
             modelBuilder.Entity<UserGroup>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<UserGroup>()
-                .HasMany(e => e.Users)
-                .WithRequired(e => e.UserGroup)
-                .HasForeignKey(e => e.GroupID)
-                .WillCascadeOnDelete(false);
         }
     }
 }

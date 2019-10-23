@@ -162,6 +162,8 @@
     <Compile Include="Models\Entities\BookCategory.cs" />
     <Compile Include="Models\Entities\CartItem.cs" />
     <Compile Include="Models\Entities\Category.cs" />
+    <Compile Include="Models\Entities\CategoryBook.cs" />
+    <Compile Include="Models\Entities\Credential.cs" />
     <Compile Include="Models\Entities\Feedback.cs" />
     <Compile Include="Models\Entities\Image.cs" />
     <Compile Include="Models\Entities\MyDBContext.cs" />
@@ -175,11 +177,12 @@
     <Compile Include="Models\Entities\Role.cs" />
     <Compile Include="Models\Entities\ShippingType.cs" />
     <Compile Include="Models\Entities\Slide.cs" />
-    <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Entities\UserGroup.cs" />
+    <Compile Include="Models\Function\F_Author.cs" />
     <Compile Include="Models\Function\F_Book.cs" />
     <Compile Include="Models\Function\F_Category.cs" />
+    <Compile Include="Models\Function\F_Publisher.cs" />
     <Compile Include="Models\Function\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -356,6 +359,8 @@
     <Content Include="Views\Home\RenderSale.cshtml" />
     <Content Include="Views\Home\RenderNews.cshtml" />
     <Content Include="Views\Home\RenderModal_Item.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Shared\Shop\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

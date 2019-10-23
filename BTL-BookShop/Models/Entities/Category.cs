@@ -9,12 +9,6 @@ namespace BTL_BookShop.Models.Entities
     [Table("Category")]
     public partial class Category
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
-        {
-            BookCategories = new HashSet<BookCategory>();
-        }
-
         public long ID { get; set; }
 
         [StringLength(250)]
@@ -47,8 +41,5 @@ namespace BTL_BookShop.Models.Entities
 
         [StringLength(250)]
         public string MetaDescription { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookCategory> BookCategories { get; set; }
     }
 }

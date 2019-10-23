@@ -57,7 +57,5 @@ namespace BTL_BookShop.Models.Entities
 
         [StringLength(250)]
         public string MetaDescription { get; set; }
-
-        public virtual UserGroup UserGroup { get; set; }
     }
 }

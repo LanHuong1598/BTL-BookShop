@@ -18,9 +18,5 @@ namespace BTL_BookShop.Models.Entities
         public long Bookid { get; set; }
 
         public long PurchaseID { get; set; }
-
-        public virtual Book Book { get; set; }
-
-        public virtual Purchase Purchase { get; set; }
     }
 }
