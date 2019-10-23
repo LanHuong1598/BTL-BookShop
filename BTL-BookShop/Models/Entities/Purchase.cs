@@ -9,12 +9,6 @@ namespace BTL_BookShop.Models.Entities
     [Table("Purchase")]
     public partial class Purchase
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Purchase()
-        {
-            PurchaseDetails = new HashSet<PurchaseDetail>();
-        }
-
         public long ID { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -26,8 +20,5 @@ namespace BTL_BookShop.Models.Entities
         public int Total_price { get; set; }
 
         public long Publisher { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
     }
 }

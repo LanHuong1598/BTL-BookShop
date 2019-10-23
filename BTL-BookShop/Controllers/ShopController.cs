@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BTL_BookShop.Models.Function;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,13 +15,23 @@ namespace BTL_BookShop.Controllers
             return View();
         }
 
-        public ActionResult Product()
+        public ActionResult Product(long id)
         {
+            F_Category fctg = new F_Category();
+            ViewBag.ListCategory = fctg.getAll();
+            var model = new F_Book().FindEntity(id);
+            ViewBag.Book = model;
             return View();
         }
-        public ActionResult Search()
+        public ActionResult Search(string txt)
         {
+            if (txt == null) txt = "";
+            F_Category fctg = new F_Category();
+            ViewBag.ListCategory = fctg.getAll();
+            var model = new F_Book().getAll();
+            ViewBag.Book = model;
             return View();
         }
+
     }
 }

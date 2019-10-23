@@ -1,7 +1,8 @@
-namespace BTL_BookShop.Models.Entities
+﻿namespace BTL_BookShop.Models.Entities
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -9,29 +10,24 @@ namespace BTL_BookShop.Models.Entities
     [Table("Author")]
     public partial class Author
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Author()
-        {
-            Books = new HashSet<Book>();
-        }
-
         public int ID { get; set; }
 
         [StringLength(255)]
+        [DisplayName("Tên Tác Giả")]
         public string Name { get; set; }
 
         [Column(TypeName = "date")]
+        [DisplayName("Ngày sinh")]
         public DateTime? DateOfBirth { get; set; }
-
+        [DisplayName("Tiểu sử")]
         public string Description { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Quốc tịch")]
         public string Type { get; set; }
 
         [StringLength(255)]
+        [DisplayName("Avatar")]
         public string Image { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Books { get; set; }
     }
 }

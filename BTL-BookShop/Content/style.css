@@ -1461,14 +1461,20 @@ body {
     overflow: hidden;
 }
 
-#huyhoang {
-    display: inline;
-    width: 220px;
-    height: 350px;
+.product-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 5;
+    height: 75px;
+    display: -webkit-box;
 }
 
 .product-img,
 .most-product-img {
+    padding-top: 35px;
+    margin-top: 11px !important;
+    margin-right: 42px;
     position: relative;
     overflow: hidden;
 }
@@ -1565,12 +1571,12 @@ body {
         }
 
 .product-price ul li {
-    display: inline-block;
-    color: #f07c29;
-    font-size: 20px;
-    font-weight: 600;
-    font-family: 'Rufina', serif;
-    font-style: italic;
+    color: #da2028;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+    margin-right: 42px;
+    margin-top: 14px;
 }
 
     .product-price ul li span {
