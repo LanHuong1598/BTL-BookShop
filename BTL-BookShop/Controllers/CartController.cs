@@ -1,5 +1,5 @@
 ﻿using BTL_BookShop.Models.Function;
-using BTL_BookShop.Models.Functions;
+using BTL_BookShop.Models.Function;
 using System;
 using System.Collections.Generic;
 using System.Linq;
