@@ -19,6 +19,17 @@ namespace BTL_BookShop.Models.Function
             List<Book> ans = context.Books.ToList();
             return ans;
         }
+        public IQueryable<Book> DSSach
+        {
+            get { return context.Books; }
+        }
+       
+        public Book FindEntity(long ma)
+        {
+            Book dbE = context.Books.Find(ma);
+            return dbE;
+        }
+
 
     }
 }
