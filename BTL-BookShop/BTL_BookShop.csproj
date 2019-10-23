@@ -151,6 +151,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Entities\UserGroup.cs" />
+    <Compile Include="Models\Functions\F_Book.cs" />
     <Compile Include="Models\Functions\F_Cart.cs" />
     <Compile Include="Models\Functions\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
