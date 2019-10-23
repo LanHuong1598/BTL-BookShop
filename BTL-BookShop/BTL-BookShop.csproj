@@ -361,6 +361,7 @@
     <Content Include="Views\Home\RenderModal_Item.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shared\Shop\_Layout.cshtml" />
+    <Content Include="Views\Home\Product_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

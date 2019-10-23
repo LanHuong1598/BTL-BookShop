@@ -19,6 +19,9 @@ namespace BTL_BookShop.Models.Function
             List<Book> ans = context.Books.ToList();
             return ans;
         }
-
+        public Book GetBook(long id)
+        {
+            return context.Books.Find(id);
+        }
     }
 }
