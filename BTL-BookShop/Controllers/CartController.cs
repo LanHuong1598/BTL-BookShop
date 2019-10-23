@@ -14,7 +14,9 @@ namespace BTL_BookShop.Controllers
         {
             var model = new F_cart().ListCartItems.ToList();
             ViewBag.cart = model;
-            return View(model);
+            F_Category fctg = new F_Category();
+            ViewBag.ListCategory = fctg.getAll();
+            return View();
         }
         public ActionResult Menu()
         {
