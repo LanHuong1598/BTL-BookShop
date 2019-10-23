@@ -31,7 +31,5 @@ namespace BTL_BookShop.Models.Entities
         public string Author { get; set; }
 
         public string Content { get; set; }
-
-        public virtual NewsType NewsType { get; set; }
     }
 }

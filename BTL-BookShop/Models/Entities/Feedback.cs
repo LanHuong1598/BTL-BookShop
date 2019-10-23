@@ -23,7 +23,6 @@ namespace BTL_BookShop.Models.Entities
         [StringLength(50)]
         public string Adress { get; set; }
 
-        [StringLength(250)]
         public string Content { get; set; }
 
         public DateTime? CreatedDate { get; set; }

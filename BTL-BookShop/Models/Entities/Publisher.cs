@@ -9,13 +9,6 @@ namespace BTL_BookShop.Models.Entities
     [Table("Publisher")]
     public partial class Publisher
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Publisher()
-        {
-            Books = new HashSet<Book>();
-            Books1 = new HashSet<Book>();
-        }
-
         public int ID { get; set; }
 
         [StringLength(250)]
@@ -53,11 +46,5 @@ namespace BTL_BookShop.Models.Entities
 
         [StringLength(250)]
         public string MetaDescription { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Books { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Books1 { get; set; }
     }
 }

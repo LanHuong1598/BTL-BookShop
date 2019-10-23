@@ -9,23 +9,10 @@ namespace BTL_BookShop.Models.Entities
     [Table("UserGroup")]
     public partial class UserGroup
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserGroup()
-        {
-            Users = new HashSet<User>();
-            Roles = new HashSet<Role>();
-        }
-
         [StringLength(20)]
         public string ID { get; set; }
 
         [StringLength(50)]
         public string Name { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Roles { get; set; }
     }
 }

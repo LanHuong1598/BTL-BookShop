@@ -9,12 +9,6 @@ namespace BTL_BookShop.Models.Entities
     [Table("Order")]
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            Order_Detail = new HashSet<Order_Detail>();
-        }
-
         public long ID { get; set; }
 
         public DateTime? CreateDate { get; set; }
@@ -45,10 +39,5 @@ namespace BTL_BookShop.Models.Entities
         public DateTime? ShippedDate { get; set; }
 
         public decimal? TotalPrice { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Detail> Order_Detail { get; set; }
-
-        public virtual ShippingType ShippingType { get; set; }
     }
 }
