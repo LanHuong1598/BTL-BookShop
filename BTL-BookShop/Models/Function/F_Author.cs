@@ -42,7 +42,7 @@ namespace BTL_BookShop.Models.Function
             }
             else
             {
-                context.Authors.Add(model);
+                context.Authors.Add(new Author { Name = model.Name, Description = model.Description, DateOfBirth = model.DateOfBirth, Image = model.Image, Type = model.Type });
                 context.SaveChanges();
                 return model.ID;
             }
