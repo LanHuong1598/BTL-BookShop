@@ -33,34 +33,22 @@ namespace BTL_BookShop.Models.Function
             return dbE;
         }
 
-        public long? Insert(Author model)
+        public int Insert(Author us)
         {
-            Author temp = context.Authors.Find(model.ID);
-            if (temp == null)
-            {
-                return null;
-            }
-            else
-            {
-                context.Authors.Add(new Author { Name = model.Name, Description = model.Description, DateOfBirth = model.DateOfBirth, Image = model.Image, Type = model.Type });
-                context.SaveChanges();
-                return model.ID;
-            }
+            context.Authors.Add(new Author { Name = us.Name, Description = us.Description, DateOfBirth = us.DateOfBirth, Image = us.Image, Type = us.Type });
+            int res = context.SaveChanges();
+            return res;
         }
-
-        public long? Update(Author model)
+        public int Update(Author us)
         {
-            Author temp = context.Authors.Find(model.ID);
-            if (temp == null)
-            {
-                return null;
-            }
-            else
-            {
-                temp = model;
-                context.SaveChanges();
-                return model.ID;
-            }
+            Author author = context.Authors.Find(us.ID);
+            author.Name = us.Name;
+            author.Description = us.Description;
+            author.DateOfBirth = us.DateOfBirth;
+            author.Image = us.Image;
+            author.Type = us.Type;
+            int res = context.SaveChanges();
+            return res;
         }
         public long? Delete(Author model)
         {

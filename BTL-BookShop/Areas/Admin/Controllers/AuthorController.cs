@@ -30,7 +30,7 @@ namespace BTL_BookShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var fauthor = new F_Author();
-                long? res = fauthor.Insert(us);
+                int res = fauthor.Insert(us);
                 if (res > 0) return RedirectToAction("Index");
                 else ModelState.AddModelError("Notice", "Them khong thanh cong");
 
@@ -52,7 +52,7 @@ namespace BTL_BookShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var fauthor = new F_Author();
-                long? res = fauthor.Update(us);
+                int res = fauthor.Update(us);
                 if (res > 0) return RedirectToAction("Index");
                 else ModelState.AddModelError("Notice", "Them khong thanh cong");
             }
