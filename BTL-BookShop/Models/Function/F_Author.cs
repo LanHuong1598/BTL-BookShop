@@ -76,5 +76,18 @@ namespace BTL_BookShop.Models.Function
                 return model.ID;
             }
         }
+        public List<string> Form()
+        {
+            var listForm = new List<string>();
+            listForm.Add("Trong nước");
+            listForm.Add("Nước ngoài");
+
+            return listForm;
+        }
+        public Author ViewDetail(int id)
+        {
+            Author res = context.Authors.Find(id);
+            return res;
+        }
     }
 }
