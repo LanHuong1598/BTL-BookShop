@@ -44,7 +44,7 @@ namespace BTL_BookShop.Controllers
         public ActionResult Login()
         {
             List<User> DS_User = new F_User().DS_User.ToList();
-            return View(DS_User);
+            return View();
         }
 
         public ActionResult Register()
