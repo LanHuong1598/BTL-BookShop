@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BTL_BookShop.Models.Function
+namespace BTL_BookShop.Models.Functions
 {
     public class F_Book
     {
@@ -16,11 +16,6 @@ namespace BTL_BookShop.Models.Function
         public IQueryable<Book> ListBooks
         {
             get { return context.Books; }
-        }
-        public List<Book> getAll()
-        {
-            List<Book> ans = context.Books.ToList();
-            return ans;
         }
         public Book FindBook(long ma)
         {
@@ -42,10 +37,9 @@ namespace BTL_BookShop.Models.Function
             }
         }
 
-        public Book FindEntity(long ma)
+        internal object FindEntity(long id)
         {
-            Book dbE = context.Books.Find(ma);
-            return dbE;
+            throw new NotImplementedException();
         }
 
         public long? Update(Book model)
@@ -76,7 +70,11 @@ namespace BTL_BookShop.Models.Function
                 return model.ID;
             }
         }
-        
+        public List<Book> getAll()
+        {
+            List<Book> ans = context.Books.ToList();
+            return ans;
+        }
 
     }
 }

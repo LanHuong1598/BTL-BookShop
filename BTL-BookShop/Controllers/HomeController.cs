@@ -54,30 +54,21 @@ namespace BTL_BookShop.Controllers
         {
             string TenDN = model.UserName;
             string MK = model.Password;
-            System.Web.UI.ScriptManager script_manager = new System.Web.UI.ScriptManager();
+            
             List<User> Ds_User = new F_User().DS_User.ToList();
-            User user = new User();
-            F_User f = new F_User();
-            user = new F_User().Login(TenDN, MK);
-            if (f.Login_Test(TenDN, MK) == true)
-            {
-                if (user.GroupID == "ADMIN")
+            
+                User user = new User();
+                user = new F_User().Login(TenDN, MK);
+                if(user.GroupID=="Admin")
                 {
-                    return Redirect("/Admin");
+                return RedirectToAction("Index", "Admin");
                 }
                 else
                 {
                     return RedirectToAction("Index", "Home");
                 }
-            }
-            else
-            {
-                //script_manager.Page.ClientScript.RegisterStartupScript(this.GetType(), "showMyMessage", "ShowMessage('Requested failed.');", true);
-                ModelState.AddModelError("", "Đăng nhập không đúng");
-                return RedirectToAction("Login", "Home");
-            }
-
-
+           
+            
         }
         public ActionResult Register()
         {
