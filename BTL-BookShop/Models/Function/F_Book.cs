@@ -42,9 +42,10 @@ namespace BTL_BookShop.Models.Function
             }
         }
 
-        internal object FindEntity(long id)
+        public Book FindEntity(long ma)
         {
-            throw new NotImplementedException();
+            Book dbE = context.Books.Find(ma);
+            return dbE;
         }
 
         public long? Update(Book model)

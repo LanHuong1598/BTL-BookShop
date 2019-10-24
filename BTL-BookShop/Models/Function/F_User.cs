@@ -20,17 +20,20 @@ namespace BTL_BookShop.Models.Function
         }
         public User Login(string user_name,string password)
         {
+            List<User> ds = new List<User>();
             User user = new User();
-            if(Login_Test(user_name,password)==true)
+            ds = context.Users.Where(x => x.UserName == user_name && x.Password == password).ToList();
+            if (Login_Test(user_name, password) == true)
             {
-                var temp= new F_User().DS_User.ToList();
-                user = temp[0];
+
+                user = ds[0];
             }
             else
             {
-                
+
             }
             return user;
+
         }
         public IQueryable<User> DS_User
         {
