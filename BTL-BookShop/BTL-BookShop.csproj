@@ -158,7 +158,7 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthorController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
@@ -5380,7 +5380,7 @@
     <Content Include="Assets\Admin\scss\_variables.scss" />
     <Content Include="Assets\Admin\scss\_waveseffect.scss" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Author\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Author\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Author\Update.cshtml" />

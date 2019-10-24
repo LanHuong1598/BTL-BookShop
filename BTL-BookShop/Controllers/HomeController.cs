@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BTL_BookShop.Models.Entities;
-using BTL_BookShop.Models.Function;
 using BTL_BookShop.Models.Functions;
 
 namespace BTL_BookShop.Controllers
@@ -16,6 +15,7 @@ namespace BTL_BookShop.Controllers
         {
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
+            ViewBag.ListBook = new F_Book().getAll();
             return View();
         }
 
