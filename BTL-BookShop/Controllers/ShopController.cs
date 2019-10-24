@@ -26,11 +26,11 @@ namespace BTL_BookShop.Controllers
         }
         public ActionResult Search(string txt)
         {
-            if (txt == null) txt = "";
+            var model = new F_Book().getAll().Where(x => x.Name.Contains(txt)).ToList();
+            ViewBag.Book = model;
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
-            var model = new F_Book().getAll();
-            ViewBag.Book = model;
+            
             return View();
         }
 
