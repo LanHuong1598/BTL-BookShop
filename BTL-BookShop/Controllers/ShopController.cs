@@ -42,7 +42,7 @@ namespace BTL_BookShop.Controllers
                         join book1 in dsBook on book.IDBook equals book1.ID
                         select new Book
                         {
-                            ID = book.ID,
+                            ID = book1.ID,
                             Name = book1.Name,
                             Image = book1.Image,
                             Price = book1.Price
