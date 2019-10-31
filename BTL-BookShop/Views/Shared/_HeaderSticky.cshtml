@@ -11,15 +11,15 @@
                 <div class="menu-area">
                     <nav>
                         <ul>
-                            <li><a href="home.html">Trang chủ</i></a></li>
-                            <li><a href="product-details.html">Sách mới </i></a></li>
+                            <li><a href="~/Home/Index">Trang chủ</i></a></li>
+                            <li><a href="~/Shop/timkiemtheocategory/1">Sách mới </i></a></li>
                             <li>
                                 <a href="product-details.html">Sách theo chủ đề<i class="fa fa-angle-down"></i></a>
                                 <div class="mega-menu mega-menu-2">
                                     @foreach (var item in ViewBag.ListCategory)
                                     {
                                         <span>
-                                            <a href="shop.html">@item.Name</a>
+                                            <a href="~/Shop/timkiemtheoCategory/@item.ID">@item.Name</a>
                                         </span>
                                     }
                                     @*<span>
