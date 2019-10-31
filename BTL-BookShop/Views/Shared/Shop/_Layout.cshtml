@@ -58,7 +58,7 @@
                                     var ListCategory = new F_Category().getAll().ToList();
                                     foreach (var u in ListCategory)
                                     {
-                                        <li><a href="#">@u.Name </a></li>
+                                        <li><a href="~/Shop/timkiemtheocategory/@u.ID">@u.Name </a></li>
                                     }
                                 }
                             </ul>
@@ -72,7 +72,7 @@
                                     var ListPublisher = new F_Publisher().getAll().ToList();
                                     foreach (var u in ListPublisher)
                                     {
-                                        <li><a href="#">@u.Name</a></li>
+                                        <li><a href="~/Shop/timkiemtheoNXB/@u.ID">@u.Name </a></li>
                                     }
                                 }
                             </ul>
@@ -86,7 +86,7 @@
                                     var ListAuthor = new F_Author().getAll().ToList();
                                     foreach (var u in ListAuthor)
                                     {
-                                        <li><a href="#">@u.Name</a></li>
+                                        <li><a href="~/Shop/timkiemtheotacggia/@u.ID">@u.Name</a></li>
                                     }
                                 }
                             </ul>

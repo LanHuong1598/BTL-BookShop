@@ -192,6 +192,7 @@
     <Compile Include="Models\Function\F_Book.cs" />
     <Compile Include="Models\Function\F_Cart.cs" />
     <Compile Include="Models\Function\F_Category.cs" />
+    <Compile Include="Models\Function\F_CategoryBook.cs" />
     <Compile Include="Models\Function\F_Publisher.cs" />
     <Compile Include="Models\Function\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
