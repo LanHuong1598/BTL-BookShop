@@ -40,7 +40,7 @@ namespace BookShop.Controllers
                     objCart = new Cart();
                 }
                 CartItem temp = new CartItem()
-                {
+                {  
 
                     ItemID = p.ID,
                     Quantity = soLuong,
