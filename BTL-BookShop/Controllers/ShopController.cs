@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
 namespace BTL_BookShop.Controllers
 {
     public class ShopController : Controller
@@ -25,9 +25,10 @@ namespace BTL_BookShop.Controllers
             ViewBag.Book = model;
             return View();
         }
-        public ActionResult Search(string txt)
+        public ActionResult Search(string txt, int? page)
         {
-            if (txt == null) txt = "";
+            var model = new F_Book().getAll().Where(x => x.Name.Contains(txt)).ToList();
+            ViewBag.Book = model;
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
             var model = new F_Book().getAll();
@@ -68,6 +69,16 @@ namespace BTL_BookShop.Controllers
         {
 
             var dsBook = new F_Book().getAll().Where(x => x.Author == id);
+            ViewBag.Book = dsBook;
+            F_Category fctg = new F_Category();
+            ViewBag.ListCategory = fctg.getAll();
+            return View("Search");
+        }
+        public ActionResult timkiemtheogia(string begin, string end)
+        {
+            int u = Convert.ToInt32(begin);
+            int v = Convert.ToInt32(end);
+            var dsBook = new F_Book().getAll().Where(x => x.Price >= u && x.Price <= v);
             ViewBag.Book = dsBook;
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
