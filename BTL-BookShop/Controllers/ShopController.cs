@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
+
 namespace BTL_BookShop.Controllers
 {
     public class ShopController : Controller
@@ -31,7 +31,7 @@ namespace BTL_BookShop.Controllers
             ViewBag.Book = model;
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
-            var model = new F_Book().getAll();
+           // var model = new F_Book().getAll();
             ViewBag.Book = model;
             return View();
         }

@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     // Hàng mới về
 }
 
@@ -35,7 +35,7 @@
                     <li><a href="#"><i class="fa fa-star"></i></a></li>
                 </ul>
             </div>
-            <h4><a href="#">@item.Name</a></h4>
+            <h4><a href="~/Shop/Product/@item.ID">@item.Name</a></h4>
             <div class="product-price">
                 <ul>
                     <li>@item.Price</li>
@@ -44,7 +44,7 @@
         </div>
         <div class="product-link">
             <div class="product-button">
-                <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                <a href="javascript:;" onclick="ThemGioHang(@item.ID)" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
             </div>
             <div class="add-to-link">
                 <ul>

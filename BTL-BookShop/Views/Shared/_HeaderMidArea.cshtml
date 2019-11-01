@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     // Layout Search, logo, cart
 }
 <div class="header-mid-area ptb-40">
@@ -9,7 +9,7 @@
                     <form method="post" action="/Shop/Search">
                         <input type="text" name="txt" placeholder="Search entire store here..." />
                         <a href="#">
-                            <i class="fa fa-search" ></i>
+                            <i class="fa fa-search"></i>
                         </a>
 
                     </form>
@@ -57,7 +57,7 @@
                                     <h5>Total <span>£12.00</span></h5>
                                 </div>
                                 <div class="cart-bottom">
-                                    <a class="view-cart" href="cart.html">view cart</a>
+                                    <a @Html.ActionLink("ViewCart", "Index", "Cart")</a>
                                     <a href="checkout.html">Check out</a>
                                 </div>
                             </div>

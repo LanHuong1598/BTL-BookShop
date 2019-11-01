@@ -175,6 +175,7 @@
     <Compile Include="Models\Entities\Author.cs" />
     <Compile Include="Models\Entities\Book.cs" />
     <Compile Include="Models\Entities\BookCategory.cs" />
+    <Compile Include="Models\Entities\Cart.cs" />
     <Compile Include="Models\Entities\CartItem.cs" />
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\CategoryBook.cs" />
