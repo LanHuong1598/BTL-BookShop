@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using BTL_BookShop.Models.Function;
+@using BTL_BookShop.Models.Entities;
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -80,6 +81,7 @@
                         <div class="left-title mb-20">
                             <h4>Author</h4>
                         </div>
+
                         <div class="left-menu mb-30">
                             <ul>
                                 @{
@@ -95,13 +97,21 @@
                             <h4>Price</h4>
                         </div>
                         <div class="left-menu mb-30">
-                            <ul>
-                                <li><a href="#">0đ-99.999đ</a></li>
-                                <li><a href="#">100.000đ - </a></li>
-                                <li><a href="#">$40.00-$49.99</a></li>
-                                <li><a href="#">$50.00-$59.99</a></li>
-                                <li><a href="#">$70.00-and above</a></li>
-                            </ul>
+                            @using (Html.BeginForm("timkiemtheogia", "Shop"))
+                            {
+                                <div class="login-form">
+                                    <div class="single-login">
+                                        <label>Chọn khoảng giá<span>*</span></label>
+                                        @Html.TextBox("begin")
+                                        - 
+                                        @Html.TextBox("end")
+                                    </div>
+                                    
+                                    <input type="submit" value="Đăng nhập" />
+                                </div>
+                            }
+
+                           
                         </div>
 
                         <div class="banner-area mb-30">
