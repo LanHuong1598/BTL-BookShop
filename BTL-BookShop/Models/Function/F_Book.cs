@@ -32,13 +32,14 @@ namespace BTL_BookShop.Models.Function
             Book temp = context.Books.Find(model.ID);
             if (temp == null)
             {
-                return null;
-            }
-            else
-            {
                 context.Books.Add(model);
                 context.SaveChanges();
                 return model.ID;
+               
+            }
+            else
+            {
+                return null;
             }
         }
 

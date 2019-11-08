@@ -1,8 +1,5 @@
 ﻿@using BTL_BookShop.Models.Entities
-@model List<Category>
-@{
-    // Menu khi to
-}
+@using BTL_BookShop.Models.Function
 
 <div class="main-menu-area hidden-sm hidden-xs sticky-header-1 text-center" id="header-sticky">
     <div class="container">
@@ -16,7 +13,11 @@
                             <li>
                                 <a href="product-details.html">Sách theo chủ đề<i class="fa fa-angle-down"></i></a>
                                 <div class="mega-menu mega-menu-2">
-                                    @foreach (var item in ViewBag.ListCategory)
+                                    @{ 
+                                        F_Category fctg = new F_Category();
+                                        var list = fctg.getAll();
+                                    }
+                                    @foreach (var item in list)
                                     {
                                         <span>
                                             <a href="~/Shop/timkiemtheoCategory/@item.ID">@item.Name</a>

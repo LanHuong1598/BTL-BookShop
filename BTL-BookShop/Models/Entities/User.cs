@@ -9,6 +9,7 @@ namespace BTL_BookShop.Models.Entities
     [Table("User")]
     public partial class User
     {
+       
         public long ID { get; set; }
 
         [StringLength(50)]

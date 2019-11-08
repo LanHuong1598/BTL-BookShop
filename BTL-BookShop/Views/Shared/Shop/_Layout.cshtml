@@ -59,7 +59,7 @@
                                     var ListCategory = new F_Category().getAll().ToList();
                                     foreach (var u in ListCategory)
                                     {
-                                        <li><a href="~/Shop/timkiemtheocategory/@u.ID">@u.Name </a></li>
+                                        <li><a href="~/Shop/timkiemtheocategory?query=@u.ID">@u.Name </a></li>
                                     }
                                 }
                             </ul>

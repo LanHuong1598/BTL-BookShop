@@ -61,6 +61,7 @@ namespace BTL_BookShop.Controllers
             user = new F_User().Login(TenDN, MK);
             if (f.Login_Test(TenDN, MK) == true)
             {
+                Session["Login"] = user ;
                 if (user.GroupID == "ADMIN")
                 {
                     return Redirect("/Admin");

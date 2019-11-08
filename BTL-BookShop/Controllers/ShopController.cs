@@ -11,6 +11,8 @@ namespace BTL_BookShop.Controllers
 {
     public class ShopController : Controller
     {
+        public object Covert { get; private set; }
+
         // GET: Shop
         public ActionResult Category()
         {
@@ -25,37 +27,27 @@ namespace BTL_BookShop.Controllers
             ViewBag.Book = model;
             return View();
         }
-        public ActionResult Search(string txt, int? page)
+        public ActionResult Search(string query, int? page)
         {
-            if (txt == null) txt = "";
-            // 1. Tham số int? dùng để thể hiện null và kiểu int
-            // page có thể có giá trị là null và kiểu int.
-
-            // 2. Nếu page = null thì đặt lại là 1.
+           
+            if (query == null) query = "";
             if (page == null) page = 1;
+            var model = new F_Book().getAll().Where(x => x.Name.Contains(query)).OrderBy(x => x.ID).ToList();
+            ViewBag.Title = "q=" + query + "&page=" + page;
 
-            // 3. Tạo truy vấn, lưu ý phải sắp xếp theo trường nào đó, ví dụ OrderBy
-            // theo LinkID mới có thể phân trang.
-            var model = new F_Book().getAll().Where(x => x.Name.Contains(txt)).OrderBy(x => x.ID).ToList();
-
-            // 4. Tạo kích thước trang (pageSize) hay là số Link hiển thị trên 1 trang
-            int pageSize = 3;
-
-            // 4.1 Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
-            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageSize = 6;            
             int pageNumber = (page ?? 1);
-
-            // 5. Trả về các Link được phân trang theo kích thước và số trang.
             
-
-            ViewBag.Book = model.ToPagedList(pageNumber, pageSize);
             F_Category fctg = new F_Category();
-            ViewBag.ListCategory = fctg.getAll();
-            
-            return View();
+            ViewBag.ListCategory = fctg.getAll();            
+            return View("Search", model.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult timkiemtheocategory(long id)
+        public ActionResult timkiemtheocategory(string query,  int? page)
         {
+            long? id = Convert.ToInt64(query);
+            if(id==null) id = Convert.ToInt64(Request.QueryString["query"]);
+
+            ViewBag.Title = "category=" + id + "&page=" + page;
             var listBook = new F_CategoryBook().getAll().Where(x => x.IDCategory == id).ToList();
             var dsBook = new F_Book().getAll();
             var list = (from book in listBook
@@ -68,11 +60,24 @@ namespace BTL_BookShop.Controllers
                             Price = book1.Price
 
                         });
+
+            List<Book> u = new List<Book>();
+            foreach (var v in list)
+            {
+                Book temp = new Book();
+                temp.ID = v.ID;
+                temp.Name = v.Name;
+                temp.Price = v.NumberPage;
+                temp.Image = v.Image;
+                u.Add(temp);
+            }
             ViewBag.Book = list;
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
-
-            return View("Search");
+            
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View("Search", u.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult timkiemtheoNXB(long id)

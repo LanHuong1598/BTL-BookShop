@@ -8,7 +8,9 @@
 @using BTL_BookShop.Models.Entities;
 @using BTL_BookShop.Models.Function;
 @using PagedList
+@using PagedList.Mvc
 
+@model PagedList.IPagedList<BTL_BookShop.Models.Entities.Book>
 <body class="shop">
 
     <!-- shop-main-area-start -->
@@ -24,7 +26,7 @@
                             <div class="row">
                                 @{
 
-                                    foreach (var u in ViewBag.Book)
+                                    foreach (var u in Model)
                                     {
                                         <div class="col-lg-3 col-md-3 col-sm-3">
                                             <!-- single-product-start -->
@@ -84,9 +86,28 @@
                                     }
 
                             </div>
-                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            <br />
+                            @{ 
+                                string temp = Request.Url.AbsolutePath;
+                                string[] list = temp.Split('/');
+                                string action = list[2];
+                                string controller = list[1];
+                                temp = Request.Url.Query;
+                                list = temp.Split('=');
+                                string category = null;
+                                string type = null;
+                                if (list[0] != "")
+                                {
+                                    type = list[0].Replace("?", "") ;
+                                    category = Request.QueryString[type];
+                                }
+                                };
 
+                            }
+                            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                            @Html.PagedListPager(Model, page => Url.Action(action, controller,new {query = category ,page }))
+                           
+                            
 
                         </div>
                         <div class="tab-pane fade" id="list">

@@ -6394,6 +6394,9 @@ nav.menu .cr-dropdown ul {
     .table-content table td.product-remove {
         width: 150px;
     }
+    .table-content table td.product-update {
+        width: 150px;
+    }
 
         .table-content table td.product-remove i {
             color: #919191;
@@ -6404,6 +6407,17 @@ nav.menu .cr-dropdown ul {
             text-align: center;
             width: 40px;
         }
+
+    .table-content table td.product-update i {
+        color: #919191;
+        display: inline-block;
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        width: 40px;
+    }
+
 
 .buttons-cart ul li {
     display: inline-block;

@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using BTL_BookShop.Models.Entities;
@@ -911,7 +912,6 @@
             success: function (data) {
                 var json = JSON.parse(data);
                 alert(json);
-                window.location.reload();
             },
             error: function (err) {
                 alert("Đã xảy ra lỗi" + err.responseText);

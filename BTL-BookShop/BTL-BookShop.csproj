@@ -200,6 +200,8 @@
     <Compile Include="Models\Function\F_Cart.cs" />
     <Compile Include="Models\Function\F_Category.cs" />
     <Compile Include="Models\Function\F_CategoryBook.cs" />
+    <Compile Include="Models\Function\F_Order.cs" />
+    <Compile Include="Models\Function\F_Order_Detail.cs" />
     <Compile Include="Models\Function\F_Publisher.cs" />
     <Compile Include="Models\Function\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -5053,6 +5055,7 @@
     <Content Include="Content\audio\Ami_Raji.mp3" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Cart.js" />
     <Content Include="Content\css\animate.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\chosen-sprite.png" />
@@ -5448,6 +5451,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Cart\index.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

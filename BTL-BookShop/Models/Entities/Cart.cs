@@ -43,7 +43,8 @@ namespace BTL_BookShop.Models.Entities
             CartItem existsItem = ListItem.Where(x => x.ItemID == lngProductSellID).SingleOrDefault();
             if (existsItem != null)
             {
-                existsItem.Quantity = intQuantity;
+                var myItem = ListItem.Single(s => s.ItemID.Equals(lngProductSellID));
+                myItem.Quantity =  intQuantity;
             }
             return true;
         }

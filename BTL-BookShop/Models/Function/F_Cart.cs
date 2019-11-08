@@ -26,7 +26,7 @@ namespace BTL_BookShop.Models.Functions
         public long? Insert(CartItem model)
         {
             CartItem temp = content.CartItems.Find(model.ID);
-            if (temp == null)
+            if (temp != null)
             {
                 return null;
             }

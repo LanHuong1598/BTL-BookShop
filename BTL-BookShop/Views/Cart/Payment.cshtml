@@ -1,9 +1,7 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
-
+﻿@{
+    ViewBag.Title = "Payment";
 }
+
 @model BTL_BookShop.Models.Entities.GioHangViewModel
 @using BTL_BookShop.Models.Function
 
@@ -55,8 +53,8 @@
                 <div class="col-lg-12">
                     <div class="breadcrumbs-menu">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#" class="active">cart</a></li>
+                            <li><a href="~/Home/Index/">Home</a></li>
+                            <li><a href="~/Cart/Index/" class="active">cart</a></li>
                         </ul>
                     </div>
                 </div>
@@ -121,12 +119,12 @@
                                                 <td class="product-thumbnail"><a href="#"><img src="@Ca.Image" alt="man" /></a></td>
                                                 <td class="product-name"><a href="#">@Ca.Name</a></td>
                                                 <td class="product-price"><span class="amount">@Ca.PromotionPrice</span></td>
-                                               
+
                                                 <td class="product-quantity"> <input type="text" value="@Ca.Quantity" id="soluong">   </td>
-                                           
+
                                                 <td class="product-subtotal">@Ca.total</td>
-                                                <td class="product-name" >
-                                                    <a href="javascript:;" onclick="SuaSanPham(@Ca.ID)">Cập nhật</a> 
+                                                <td class="product-name">
+                                                    <a href="javascript:;" onclick="SuaSanPham(@Ca.ID)">Cập nhật</a>
 
                                                 </td>
                                                 <td class="product-button"><a href="javascript:;" onclick="XoaSanPham(@Ca.ID)"><i class="fa fa-times"></i></a></td>
@@ -140,22 +138,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                        <div class="buttons-cart mb-30">
-                            <ul>
-                                <li><a href="#">Update Cart</a></li>
-                                <li><a href="#">Continue Shopping</a></li>
-                            </ul>
-                        </div>
-                        <div class="coupon">
-                            <h3>Coupon</h3>
-                            <p>Enter your coupon code if you have one.</p>
-                            <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <a href="#">Apply Coupon</a>
-                            </form>
-                        </div>
-                    </div>
+                    
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="cart_totals">
                             <h2>Cart Totals</h2>
@@ -176,22 +159,7 @@
                                         </td>
                                     </tr>
 
-                                    <tr class="shipping">
-                                        <th>Shipping</th>
-                                        <td>
-                                            <ul id="shipping_method">
-                                                <li>
-                                                    
-                                                    <label>
-                                                        Flat Rate:
-                                                        <span class="amount">15000</span>
-                                                    </label>
-                                                </li>
-                                               
-                                            </ul>
-                                            <a href="#">Calculate Shipping</a>
-                                        </td>
-                                    </tr>
+                                   
                                     <tr class="order-total">
                                         <th>Total</th>
                                         <td>
@@ -203,9 +171,7 @@
 
                                 </tbody>
                             </table>
-                            <div class="wc-proceed-to-checkout">
-                                <a href="~/Cart/Payment/">Proceed to Checkout</a>
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
@@ -213,108 +179,48 @@
         </div>
                                         }
     <!-- cart-main-area-end -->
-    <!-- footer-area-start -->
+    <!-- entry-header-area-start -->
+    <div class="entry-header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="entry-header-title">
+                        <h2>CheckOut</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- entry-header-area-end -->
+    <!-- Form nhập địa chỉ-->
+    <div class="cart-main-area mb-70">
+        <div class="container">
+            <div class="section group">
+                <div class="col-md-6">
+                    @using (Html.BeginForm("Checkout", "Cart", FormMethod.Post))
+            {
+                        <div class="form-group">
+                            <label>Người nhận</label>
+                            <input name="shipName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Điện thoại</label>
+                            <input name="mobile" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input name="address" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="email" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn">Gửi đơn hàng</button>
+                    }
+                </div>
+
+            </div>
+            </div>
+        </div>
 
 </body>
-<!-- Modal end -->
-<!-- all js here -->
-<!-- jquery latest version -->
-<script src="~/Content/js/vendor/jquery-1.12.0.min.js"></script>
-<!-- bootstrap js -->
-<script src="~/Content/js/bootstrap.min.js"></script>
-<!-- owl.carousel js -->
-<script src="~/Content/js/owl.carousel.min.js"></script>
-<!-- meanmenu js -->
-<script src="~/Content/js/jquery.meanmenu.js"></script>
-<!-- wow js -->
-<script src="~/Content/js/wow.min.js"></script>
-<!-- jquery.parallax-1.1.3.js -->
-<script src="~/Content/js/jquery.parallax-1.1.3.js"></script>
-<!-- jquery.countdown.min.js -->
-<script src="~/Content/js/jquery.countdown.min.js"></script>
-<!-- jquery.flexslider.js -->
-<script src="~/Content/js/jquery.flexslider.js"></script>
-<!-- chosen.jquery.min.js -->
-<script src="~/Content/js/chosen.jquery.min.js"></script>
-<!-- jquery.counterup.min.js -->
-<script src="~/Content/js/jquery.counterup.min.js"></script>
-<!-- waypoints.min.js -->
-<script src="~/Content/js/waypoints.min.js"></script>
-<!-- plugins js -->
-<script src="~/Content/js/plugins.js"></script>
-<!-- main js -->
-<script src="~/Content/js/main.js"></script>
-
-<script type="text/javascript">
-
-    function XoaSanPham(masp) {
-        var cf = confirm("Really ? ");
-        $.ajax({
-            url: '/Cart/XoaSanPham/?id=' + masp ,
-            type: 'POST',
-            dataType: 'json',
-            success: function (result) {
-                var json = JSON.parse(result);
-                alert(json);
-                window.location.reload();
-            },
-            error: function (err) {
-                alert("Đã xảy ra lỗi" + err.responseText);
-            }
-        });
-    };
-</script>
-
-<!-- Modal end -->
-<!-- all js here -->
-<!-- jquery latest version -->
-<script src="~/Content/js/vendor/jquery-1.12.0.min.js"></script>
-<!-- bootstrap js -->
-<script src="~/Content/js/bootstrap.min.js"></script>
-<!-- owl.carousel js -->
-<script src="~/Content/js/owl.carousel.min.js"></script>
-<!-- meanmenu js -->
-<script src="~/Content/js/jquery.meanmenu.js"></script>
-<!-- wow js -->
-<script src="~/Content/js/wow.min.js"></script>
-<!-- jquery.parallax-1.1.3.js -->
-<script src="~/Content/js/jquery.parallax-1.1.3.js"></script>
-<!-- jquery.countdown.min.js -->
-<script src="~/Content/js/jquery.countdown.min.js"></script>
-<!-- jquery.flexslider.js -->
-<script src="~/Content/js/jquery.flexslider.js"></script>
-<!-- chosen.jquery.min.js -->
-<script src="~/Content/js/chosen.jquery.min.js"></script>
-<!-- jquery.counterup.min.js -->
-<script src="~/Content/js/jquery.counterup.min.js"></script>
-<!-- waypoints.min.js -->
-<script src="~/Content/js/waypoints.min.js"></script>
-<!-- plugins js -->
-<script src="~/Content/js/plugins.js"></script>
-<!-- main js -->
-<script src="~/Content/js/main.js"></script>
-
-<script type="text/javascript">
-
-    function SuaSanPham(masp) {       
-        var cf = confirm("Really ? "  );
-        var obj = {
-            ID: masp,
-            sl: $('#soluong').val(),
-        }
-        $.ajax({
-            url: '/Cart/CapNhatSoLuong/?id=' + masp + '&soLuong=' + obj.sl + '',
-            type: 'POST',
-            dataType: 'json',
-            success: function (result) {
-                var json = JSON.parse(result);
-                alert(json);
-                window.location.reload();
-            },
-            error: function (err) {
-                alert("Đã xảy ra lỗi" + err.responseText);
-            }
-        });
-    };
-</script>
-          

@@ -6,50 +6,50 @@ using System.Web;
 
 namespace BTL_BookShop.Models.Function
 {
-    public class F_Publisher
+    public class F_Order
     {
         private MyDBContext context;
 
-        public List<Publisher> getAll()
+        public List<Order> getAll()
         {
-            List<Publisher> ans = context.Publishers.ToList();
+            List<Order> ans = context.Orders.ToList();
             return ans;
         }
 
-        public F_Publisher()
+        public F_Order()
         {
             context = new MyDBContext();
         }
 
-        public IQueryable<Publisher> DSDM
+        public IQueryable<Order> DSDM
         {
-            get { return context.Publishers; }
+            get { return context.Orders; }
         }
 
-        public Publisher FindEntity(long ma)
+        public Order FindEntity(long ma)
         {
-            Publisher dbE = context.Publishers.Find(ma);
+            Order dbE = context.Orders.Find(ma);
             return dbE;
         }
 
-        public long? Insert(Publisher model)
+        public long? Insert(Order model)
         {
-            Publisher temp = context.Publishers.Find(model.ID);
+            Order temp = context.Orders.Find(model.ID);
             if (temp != null)
             {
                 return null;
             }
             else
             {
-                context.Publishers.Add(model);
+                context.Orders.Add(model);
                 context.SaveChanges();
                 return model.ID;
             }
         }
 
-        public long? Update(Publisher model)
+        public long? Update(Order model)
         {
-            Publisher temp = context.Publishers.Find(model.ID);
+            Order temp = context.Orders.Find(model.ID);
             if (temp == null)
             {
                 return null;
@@ -61,16 +61,16 @@ namespace BTL_BookShop.Models.Function
                 return model.ID;
             }
         }
-        public long? Delete(Publisher model)
+        public long? Delete(Order model)
         {
-            Publisher temp = context.Publishers.Find(model.ID);
+            Order temp = context.Orders.Find(model.ID);
             if (temp == null)
             {
                 return null;
             }
             else
             {
-                context.Publishers.Remove(model);
+                context.Orders.Remove(model);
                 context.SaveChanges();
                 return model.ID;
             }
