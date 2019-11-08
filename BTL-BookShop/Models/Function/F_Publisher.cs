@@ -14,6 +14,8 @@ namespace BTL_BookShop.Models.Function
         {
             List<Publisher> ans = context.Publishers.ToList();
             return ans;
+
+
         }
 
         public F_Publisher()
