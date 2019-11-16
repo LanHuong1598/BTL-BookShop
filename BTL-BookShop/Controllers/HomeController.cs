@@ -16,9 +16,15 @@ namespace BTL_BookShop.Controllers
             F_Category fctg = new F_Category();
             ViewBag.ListCategory = fctg.getAll();
             ViewBag.ListBook = new F_Book().getAll();
-            return View();
+            var model = new F_Book().getAll();
+            return View(model);
         }
-
+        public PartialViewResult _HeaderSticky()
+        {
+            F_Category fctg = new F_Category();
+            ViewBag.ListCategory = fctg.getAll();
+            return PartialView();
+        }
         public PartialViewResult RenderNews()
         {
             F_Book book = new F_Book();
@@ -59,9 +65,10 @@ namespace BTL_BookShop.Controllers
             
                 User user = new User();
                 user = new F_User().Login(TenDN, MK);
-                if(user.GroupID=="Admin")
+                Session["User"] = user;
+                if(user.GroupID.Equals("ADMIN"))
                 {
-                return RedirectToAction("Index", "Admin");
+                    return Redirect("/Admin");
                 }
                 else
                 {

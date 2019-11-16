@@ -5682,8 +5682,7 @@ nav.menu .cr-dropdown ul {
 /*----------------------------------------*/
 
 .user-login-area {
-    overflow: hidden;
-    background: #fff;
+ 
 }
 
 .login-title h2 {
@@ -5704,7 +5703,7 @@ nav.menu .cr-dropdown ul {
     line-height: 1.6em;
     font-family: 'Rufina', serif;
     font-weight: 400;
-    color: #333;
+    color: rgba(0, 0, 0, 0);
 }
 
 .login-form {

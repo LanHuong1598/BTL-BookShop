@@ -22,19 +22,11 @@ namespace BTL_BookShop.Models.Functions
             Book temp = context.Books.Find(ma);
             return temp;
         }
-        public long? Insert(Book model)
+        public int Insert(Book model)
         {
-            Book temp = context.Books.Find(model.ID);
-            if (temp == null)
-            {
-                return null;
-            }
-            else
-            {
-                context.Books.Add(model);
-                context.SaveChanges();
-                return model.ID;
-            }
+            context.Books.Add(new Book { Code = model.Code , Name = model.Name , Author = model.Author , Released = model.Released });
+            int res = context.SaveChanges();
+            return res;
         }
 
         internal object FindEntity(long id)
@@ -42,38 +34,36 @@ namespace BTL_BookShop.Models.Functions
             throw new NotImplementedException();
         }
 
-        public long? Update(Book model)
+        public int Update(Book model)
         {
             Book temp = context.Books.Find(model.ID);
             if (temp == null)
             {
-                return null;
+                return 0;
             }
             else
             {
                 temp = model;
-                context.SaveChanges();
-                return model.ID;
+                int res = context.SaveChanges();
+                return res;
             }
         }
-        public long? Delete(Book model)
+        public int Delete(int id)
         {
-            Book temp = context.Books.Find(model.ID);
-            if (temp == null)
-            {
-                return null;
-            }
-            else
-            {
-                context.Books.Remove(model);
-                context.SaveChanges();
-                return model.ID;
-            }
+            Book temp = context.Books.Find(id);
+            context.Books.Remove(temp);
+            int res = context.SaveChanges();
+            return res;
         }
         public List<Book> getAll()
         {
             List<Book> ans = context.Books.ToList();
             return ans;
+        }
+        public Book ViewDetail(int id)
+        {
+            Book res = context.Books.Find(id);
+            return res;
         }
 
     }

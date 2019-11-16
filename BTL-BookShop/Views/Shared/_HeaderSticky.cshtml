@@ -1,8 +1,6 @@
 ﻿@using BTL_BookShop.Models.Entities
-@model List<Category>
-@{
-    // Menu khi to
-}
+@model IEnumerable<Category>
+
 
 <div class="main-menu-area hidden-sm hidden-xs sticky-header-1 text-center" id="header-sticky">
     <div class="container">
@@ -16,7 +14,7 @@
                             <li>
                                 <a href="product-details.html">Sách theo chủ đề<i class="fa fa-angle-down"></i></a>
                                 <div class="mega-menu mega-menu-2">
-                                    @foreach (var item in ViewBag.ListCategory)
+                                    @foreach (Category item in ViewBag.ListCategory)
                                     {
                                         <span>
                                             <a href="shop.html">@item.Name</a>

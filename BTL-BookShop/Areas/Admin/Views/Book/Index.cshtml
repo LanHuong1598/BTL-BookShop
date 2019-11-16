@@ -1,0 +1,108 @@
+﻿@using BTL_BookShop.Models.Entities
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Book>
+
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>@Html.ActionLink("Trang chủ ", "Index", "HomeAdmin") > Sách</h2>
+
+    </div>
+    <!-- Basic Table -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Bảng Sách</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="@Url.Action("Create" , "Hoang")">Tạo Sách</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Author</th>
+                                <th>Released</th>
+                                <th>Publisher</th>
+                                <th>NumberPage</th>
+                                <th>Weight</th>
+                                <th>Form</th>
+                                <th>PublishDate</th>
+                                <th>Buys</th>
+                                <th>Price</th>
+                                <th>PromotionPrice</th>
+                               
+                                <th>ViewCount</th>
+                                <th>Inventory</th>
+                                <th>Status</th>
+                                <th>Image</th>
+                            
+                                <th>Tùy chọn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (Book Item in Model)
+                                {
+                            <tr>
+                                <td>@Item.ID</td>
+                                <td>@Item.Code</td>
+                                <td>@Item.Name</td>
+                                <td>@Item.Author</td>
+                                <td>@Item.Released</td>
+                                <td>@Item.Publisher</td>
+                                <td>@Item.NumberPage</td>
+                                <td>@Item.Weight</td>
+                                <td>@Item.Form</td>
+                                <td>@Item.PublishDate</td>
+                                <td>@Item.Buys</td>
+                                <td>@Item.Price</td>
+                                <td>@Item.PromotionPrice</td>
+                                <td>@Item.ViewCount</td>
+                                <td>@Item.Inventory</td>
+                                <td>@Item.Status</td>
+                                <td>@Item.Image</td>
+                            
+                                <td style="text-align:center; width:80px;">
+                                    <ul class="header-dropdown" style="list-style-type:none;text-align : center">
+                                        <li class="dropdown">
+                                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <i class="material-icons">add</i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="/Admin/Book/Update/@Item.ID"><i class="material-icons">create</i>Chỉnh sửa</a></li>
+                                                <li><a href="/Admin/Book/Delete/@Item.ID"><i class="material-icons">clear</i>Xóa</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- #END# With Material Design Colors -->
+</div>
+
+
