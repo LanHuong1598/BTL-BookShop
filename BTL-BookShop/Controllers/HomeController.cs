@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using BTL_BookShop.Models.Entities;
 using BTL_BookShop.Models.Functions;
+using BTL_BookShop.Common;
 
 namespace BTL_BookShop.Controllers
 {
@@ -52,16 +53,16 @@ namespace BTL_BookShop.Controllers
         [HttpPost]
         public ActionResult Login(User model)
         {
-            string TenDN = model.UserName;
-            string MK = model.Password;
-            System.Web.UI.ScriptManager script_manager = new System.Web.UI.ScriptManager();
-            List<User> Ds_User = new F_User().DS_User.ToList();
-            User user = new User();
-            F_User f = new F_User();
-            user = new F_User().Login(TenDN, MK);
-            if (f.Login_Test(TenDN, MK) == true)
+            var f_user = new F_User();
+            var result = f_user.Login_Test(model.UserName, Encryptor.MD5Hash(model.Password));
+            if (result)
             {
-                Session["Login"] = user ;
+                var user = f_user.Login(model.UserName, model.Password);
+                var userSession = new UserLogin();
+                userSession.UserName = user.UserName;
+                userSession.UserID = user.ID;
+                userSession.GroupID = user.GroupID;
+                Session.Add(CommonConstants.USER_SESSION, userSession);
                 if (user.GroupID == "ADMIN")
                 {
                     return Redirect("/Admin");
@@ -73,12 +74,9 @@ namespace BTL_BookShop.Controllers
             }
             else
             {
-                //script_manager.Page.ClientScript.RegisterStartupScript(this.GetType(), "showMyMessage", "ShowMessage('Requested failed.');", true);
                 ModelState.AddModelError("", "Đăng nhập không đúng");
-                return RedirectToAction("Login", "Home");
             }
-
-
+            return RedirectToAction("Login", "Home");
         }
         public ActionResult Register()
         {

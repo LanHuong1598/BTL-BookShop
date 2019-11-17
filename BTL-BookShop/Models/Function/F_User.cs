@@ -35,6 +35,10 @@ namespace BTL_BookShop.Models.Function
             return user;
 
         }
+        public User getByUserName(string UserName)
+        {
+            return context.Users.SingleOrDefault(x => x.Name == UserName);
+        }
         public IQueryable<User> DS_User
         {
             get { return context.Users; }
