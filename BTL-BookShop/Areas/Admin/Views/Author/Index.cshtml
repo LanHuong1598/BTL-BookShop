@@ -1,9 +1,11 @@
 ﻿@using BTL_BookShop.Models.Entities;
+@model PagedList.IPagedList<Author>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<Author>
+
 <div class="container-fluid">
     <div class="block-header">
         <h2>@Html.ActionLink("Trang chủ ", "Index", "HomeAdmin") -> Tác giả</h2>
@@ -71,6 +73,7 @@
 
                         </tbody>
                     </table>
+                    @Html.PagedListPager(Model,page => Url.Action("Index", new { page}))
                 </div>
             </div>
         </div>

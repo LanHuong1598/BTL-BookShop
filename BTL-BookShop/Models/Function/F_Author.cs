@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 using BTL_BookShop.Models.Entities;
 using BTL_BookShop;
 
@@ -76,6 +77,10 @@ namespace BTL_BookShop.Models.Function
         {
             Author res = context.Authors.Find(id);
             return res;
+        }
+        public IEnumerable<Author> ListAllPaging(int page, int pageSize)
+        {
+            return context.Authors.OrderBy(x => x.ID).ToPagedList(page,pageSize);
         }
     }
 }
