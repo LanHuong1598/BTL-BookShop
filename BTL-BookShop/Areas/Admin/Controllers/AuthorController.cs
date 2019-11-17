@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace BTL_BookShop.Areas.Admin.Controllers
 {
-    public class AuthorController : Controller
+    public class AuthorController : BaseController
     {
         // GET: Admin/Author
         public ActionResult Index()

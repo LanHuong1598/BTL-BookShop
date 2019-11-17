@@ -81,5 +81,26 @@ namespace BTL_BookShop.Models.Function
             context.SaveChanges();
             return Id;
         }
+
+        public List<string> GetListCredential(string userName)
+        {
+            var user = context.Users.Single(x => x.UserName == userName);
+            var data = (from a in context.Credentials
+                        join b in context.UserGroups on a.UserGroupID equals b.ID
+                        join c in context.Roles on a.RoleID equals c.ID
+                        where b.ID == user.GroupID
+                        select new
+                        {
+                            RoleID = a.RoleID,
+                            UserGroupID = a.UserGroupID
+                        }).AsEnumerable().Select(x => new Credential()
+                        {
+                            RoleID = x.RoleID,
+                            UserGroupID = x.UserGroupID
+                        });
+            return data.Select(x => x.RoleID).ToList();
+
+        }
+
     }
 }

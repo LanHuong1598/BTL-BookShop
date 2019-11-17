@@ -57,7 +57,7 @@ namespace BTL_BookShop.Controllers
             var result = f_user.Login_Test(model.UserName, Encryptor.MD5Hash(model.Password));
             if (result)
             {
-                var user = f_user.Login(model.UserName, model.Password);
+                var user = f_user.Login(model.UserName, Encryptor.MD5Hash(model.Password));
                 var userSession = new UserLogin();
                 userSession.UserName = user.UserName;
                 userSession.UserID = user.ID;
