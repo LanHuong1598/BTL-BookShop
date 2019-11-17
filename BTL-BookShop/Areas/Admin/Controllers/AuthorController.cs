@@ -5,16 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace BTL_BookShop.Areas.Admin.Controllers
 {
-    public class AuthorController : Controller
+    public class AuthorController : BaseController
     {
         // GET: Admin/Author
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
             F_Author fauthor = new F_Author();
-            var model = fauthor.getAll();
+            var model = fauthor.ListAllPaging(page,pageSize); 
             return View(model);
         }
         [HttpGet]
