@@ -171,6 +171,7 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\HasCredentialAttribute.cs" />
+    <Compile Include="Common\ItemTopMenu.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Models\Function\F_Order.cs" />
     <Compile Include="Models\Function\F_Order_Detail.cs" />
     <Compile Include="Models\Function\F_Publisher.cs" />
+    <Compile Include="Models\Function\F_TopMenu.cs" />
     <Compile Include="Models\Function\F_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,8 @@
-﻿@{ 
+﻿@{
     // Layout trên cùng chứa đăng ký đăng xuất
 }
+@model List<BTL_BookShop.Common.ItemTopMenu>
+
 <div class="header-top-area">
     <div class="container">
         <div class="row">
@@ -10,9 +12,10 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="account-area text-right">
                     <ul>
-                        <li><a href="register.html">Đăng ký</a></li>
-                        <li><a href="checkout.html">Đăng xuất</a></li>
-                        <li><a href="/Home/Login/" >Đăng nhập</a></li>
+                        @foreach (BTL_BookShop.Common.ItemTopMenu item in Model)
+                        {
+                            <li><a href="@item.Link">@item.Name</a></li>
+                        }
                     </ul>
                 </div>
             </div>

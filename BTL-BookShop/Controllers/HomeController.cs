@@ -19,7 +19,23 @@ namespace BTL_BookShop.Controllers
             ViewBag.ListBook = new F_Book().getAll();
             return View();
         }
-
+        [ChildActionOnly]
+        public ActionResult _HeaderTopArea()
+        {
+            var session = (UserLogin)Session[CommonConstants.USER_SESSION];
+            F_TopMenu f_TopMenu = new F_TopMenu();
+            var model = f_TopMenu.withNullSession();
+            if (session == null)
+            {
+                model = f_TopMenu.withNullSession();
+            }
+            else
+            {
+                model = f_TopMenu.withSession(session.UserName,session.GroupID);
+            }
+         
+            return PartialView(model);
+        }
         public PartialViewResult RenderNews()
         {
             F_Book book = new F_Book();
