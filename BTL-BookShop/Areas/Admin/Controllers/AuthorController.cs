@@ -28,6 +28,10 @@ namespace BTL_BookShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Author us)
         {
+            if (us.Image.Contains("Data"))
+            {
+                us.Image.Replace("Data/Images", "Assets/Client/images/Author");
+            }
             if (ModelState.IsValid)
             {
                 var fauthor = new F_Author();
@@ -50,6 +54,7 @@ namespace BTL_BookShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Update(Author us)
         {
+           
             if (ModelState.IsValid)
             {
                 var fauthor = new F_Author();
@@ -71,5 +76,7 @@ namespace BTL_BookShop.Areas.Admin.Controllers
             return View("Index");
 
         }
+
+
     }
 }

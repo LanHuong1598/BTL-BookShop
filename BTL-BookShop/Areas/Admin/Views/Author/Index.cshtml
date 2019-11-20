@@ -33,30 +33,35 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="text-align:center; width:10px;">STT</th>
-                                <th style="text-align:center; width:180px;">Tên tác giả</th>
-                                <th style="text-align:center; width:180px;">Ngày sinh</th>
-                                <th style="text-align:center; width:120px;">Tiểu sử</th>
-                                <th style="text-align:center; width:100px;">Quốc tịch</th>
-                                <th style="text-align:center; width:100px;">Avatar</th>
-                                <th style="text-align:center; width:80px;">Tùy chọn</th>
+                                <th style="text-align:center">STT</th>
+                                <th style="text-align:center">Tên tác giả</th>
+                                <th style="text-align:center">Ngày sinh</th>
+                                <th style="text-align:center">Tiểu sử</th>
+                                <th style="text-align:center">Quốc tịch</th>
+                                <th style="text-align:center">Avatar</th>
+                                <th style="text-align:center"></th>
 
                             </tr>
                         </thead>
                         <tbody>
+                         
                             @{
                                 foreach (Author item in Model)
                                 {
                                     <tr>
-                                        <td style="text-align:center; width:10px;">@item.ID</td>
-                                        <td style="text-align:center; width:180px;">@item.Name</td>
-                                        <td style="text-align:center; width:180px;">@(item.DateOfBirth.HasValue ? @item.DateOfBirth.Value.ToString("dd/MM/yyyy") : "")</td>
-                                        <td style="text-align:center; width:120px;">@item.Description</td>
-                                        <td style="text-align:center; width:100px;">@item.Type</td>
-                                        <td style="text-align:center; width:100px;"><img src="@item.Image" /></td>
-                                        <td style="text-align:center; width:80px;">
+                                        <td style="text-align:center">@item.ID</td>
+                                        <td style="text-align:center">@item.Name</td>
+                                        <td style="text-align:center">@(item.DateOfBirth.HasValue ? @item.DateOfBirth.Value.ToString("dd/MM/yyyy") : "")</td>
+                                        <td style="text-align:center">@item.Description</td>
+                                        <td style="text-align:center">@item.Type</td>
+                                        <td style="text-align:center">
+                                            <div style="text-align:center">
+                                                <img src="@item.Image" style="width:50px;height:50px; display: block;margin: 0 auto;" />
+                                            </div>
+                                        </td>
+                                        <td style="text-align:center">
                                             <ul class="header-dropdown" style="list-style-type:none;text-align : center">
-                                                <li class="dropdown">
+                                                <li class="dropdown" style="list-style-type:none;text-align : center">
                                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                                         <i class="material-icons">add</i>
                                                     </a>

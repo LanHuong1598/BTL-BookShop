@@ -31,6 +31,7 @@ namespace BTL_BookShop.Models.Function
                 ItemTopMenu item2 = new ItemTopMenu();
                 item2.Name = "Admin Mode";
                 item2.Link = "/Admin";
+                temp.Add(item2);
             }
             ItemTopMenu item = new ItemTopMenu();
             item.Name = "Đăng xuất";
